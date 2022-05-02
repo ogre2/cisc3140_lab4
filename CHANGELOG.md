@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.2.1] &mdash; (2022/05/02)
+## [1.2.2] &mdash; (2022/05/02)
 ### Changes
 - Fixed database total valculation code for each entrys' score value in `<src/db/index.js>`.
 
