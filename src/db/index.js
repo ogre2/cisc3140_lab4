@@ -41,7 +41,7 @@ let db = new sqlite3.Database(config.database_name, (err) => {
                     let insert = 'INSERT INTO cars (Car_ID, Email, Name, Year, Make, Model, Score) VALUES (?,?,?,?,?,?,?)';
 
                     for(const item of data) {
-                        let temp = item.Racer_Turbo + item.Racer_Supercharged + item.Racer_Performance + Num(item.Racer_Horsepower);
+                        let temp = item.Racer_Turbo + item.Racer_Supercharged + item.Racer_Performance;
                         
                         db.run(insert, [
                             item.Car_ID,
