@@ -41,7 +41,7 @@ let db = new sqlite3.Database(config.database_name, (err) => {
                     let insert = 'INSERT INTO cars (Car_ID, Email, Name, Year, Make, Model, Score) VALUES (?,?,?,?,?,?,?)';
 
                     for(const item of data) {
-                        let temp = item.Racer_Turbo + item.Racer_Supercharged + item.Racer_Performance;
+                        let total = parseInt(item.Racer_Turbo) + parseInt(item.Racer_Supercharged) + parseInt(item.Racer_Performance) + parseInt(item.Racer_Horsepower) + parseInt(item.Car_Overall) + parseInt(item.Engine_Modifications) + parseInt(item.Engine_Performance) + parseInt(item.Engine_Chrome) + parseInt(item.Engine_Detailing) + parseInt(item.Engine_Cleanliness) + parseInt(item.Body_Frame_Undercarriage) + parseInt(item.Body_Frame_Suspension) + parseInt(item.Body_Frame_Chrome) + parseInt(item.Body_Frame_Detailing) + parseInt(item.Body_Frame_Cleanliness) + parseInt(item.Mods_Paint) + parseInt(item.Mods_Body) + parseInt(item.Mods_Wrap) + parseInt(item.Mods_Rims) + parseInt(item.Mods_Interior) + parseInt(item.Mods_Other) + parseInt(item.Mods_ICE) + parseInt(item.Mods_Aftermarket) + parseInt(item.Mods_WIP) + parseInt(item.Mods_Overall);
                         
                         db.run(insert, [
                             item.Car_ID,
@@ -50,7 +50,7 @@ let db = new sqlite3.Database(config.database_name, (err) => {
                             item.Year,
                             item.Make, 
                             item.Model,
-                            temp
+                            total
                         ]);
                     }
                 }).catch(err => {
