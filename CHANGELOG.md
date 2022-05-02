@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.2.1] &mdash; (2022/05/02)
 ### Changes
+- Fixed database total valculation code for each entrys' score value in `<src/db/index.js>`.
+
+## [1.2.1] &mdash; (2022/05/02)
+### Changes
 - Wrapped car routers in `<src/routes/cars.js>` in try catch blocks.
 
 ## [1.2.0] &mdash; (2022/05/02)
@@ -69,6 +73,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `README.md>`.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
+[1.2.2]: https://github.com/ogre2/cisc3140_lab4/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/ogre2/cisc3140_lab4/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/ogre2/cisc3140_lab4/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ogre2/cisc3140_lab4/compare/v1.0.1...v1.1.0
