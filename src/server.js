@@ -8,8 +8,6 @@ const bodyParser = require('body-parser')
 const config = require('./config/')
 // Importing helmet
 const helmet = require('helmet')
-// Importing colors
-const colors = require('colors')
 
 // Creating express instance
 const app = express()
@@ -22,10 +20,12 @@ const indexRouter = require('./routes/index')
 const carsRouter = require('./routes/cars')
 
 // Enabling colors
-colors.enable()
+config.colors.enable()
 
 // Setting json formatting
 app.set('json spaces', 2)
+// Configuring body-parser
+app.use(bodyParser.urlencoded({ extended: true }))
 // Using body-parser
 app.use(bodyParser.json())
 // Using helmet
@@ -34,7 +34,7 @@ app.use(helmet())
 // Using index router
 app.use('/', indexRouter)
 // Using cars router
-app.use('/api/', carsRouter)
+// app.use('/api', carsRouter)
 
 /**
  * @params NONE
