@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] &mdash; (2022/05/02)
+### Added
+- Created `<Procfile>`, configured with path to `<server.js>` file.
+  - API is now alive on Heroku: [https://cisc3140lab4.herokuapp.com/](https://cisc3140lab4.herokuapp.com/).
+
 ## [1.0.0] &mdash; (2022/05/02)
 ### Added
 - Installed dependencies
@@ -37,5 +42,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `README.md>`.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
+[1.0.1]: https://github.com/ogre2/cisc3140_lab4/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ogre2/cisc3140_lab4/compare/v0.0.1...v1.0.0
 [0.0.1]: https://github.com/ogre2/cisc3140_lab4/releases/tag/v0.0.1
