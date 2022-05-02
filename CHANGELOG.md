@@ -11,6 +11,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] &mdash; (2022/05/02)
+### Added
+- Created GET all cars router in `<src/routes/cars.js>`.
+- Created GET car by ID router in `<src/routes/cars.js>`.
+- Installed `<csvtojson>` dependency.
+- Created API database `<src/db/db.sqlite3>`.
+- Seeded API database with sample data from submodule.
+
+### Changes
+- Issues with `<src/data>` submodule. Re-added to project.
+- Enabled cars router in `<src/server.js>` for API use.
+
 ## [1.1.0] &mdash; (2022/05/02)
 ### Added
 - Created dedicated `<src/routes>` directory to house different API routers.
@@ -53,6 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `README.md>`.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
+[1.2.0]: https://github.com/ogre2/cisc3140_lab4/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/ogre2/cisc3140_lab4/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/ogre2/cisc3140_lab4/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/ogre2/cisc3140_lab4/compare/v0.0.1...v1.0.0
