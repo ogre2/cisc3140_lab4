@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.3] &mdash; (2022/05/02)
+### Changes
+- Added `<POST>` method for cars router.
+  - Can now create/add new car entries to the database/API.
+
 ## [1.2.2] &mdash; (2022/05/02)
 ### Changes
 - Fixed database total valculation code for each entrys' score value in `<src/db/index.js>`.
@@ -73,6 +78,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `README.md>`.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
+[1.2.3]: https://github.com/ogre2/cisc3140_lab4/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/ogre2/cisc3140_lab4/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/ogre2/cisc3140_lab4/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/ogre2/cisc3140_lab4/compare/v1.1.0...v1.2.0
