@@ -80,5 +80,30 @@ router.get('/cars/:id', (req, res) => {
     }
 })
 
+router.post('/cars/new', (req, res) => {
+    // TODO POST new car entry
+    try {
+        let sql = 'INSERT INTO cars (car_id, email, name, year, make, model, score) VALUES (?, ?, ?, ?, ?, ?, ?)'
+        let params = [req.body.car_id, req.body.email, req.body.name, req.body.year, req.body.make, req.body.model, req.body.score]
+
+        db.run(sql, params, err => {
+            if(err) {
+                return console.log(err.message)
+            }
+
+            res.json({
+                message: 'success',
+                data: req.body
+            })
+        })
+
+    } catch(error) {
+        console.log(error.message.red)
+        
+        res.status(500).json({
+            message: 'Not found'
+        })
+    }
+})
 // Exporting router
 module.exports = router
