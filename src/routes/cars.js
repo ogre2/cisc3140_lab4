@@ -18,20 +18,30 @@ config.colors.enable()
  * If unsuccesful, the user will be met with an error message.
  */
 router.get('/cars', (req, res) => {
-    // TODO Get all cars
-    let sql = "SELECT * FROM cars"
-    let params = []
+    // TODO GET all cars
+    try {
+        let sql = 'SELECT * FROM cars'
+        let params = []
+    
+        db.all(sql, params, (err, rows) => {
+            if (err) {
+              res.status(400).json({"error":err.message});
+              return;
+            }
+            else {
+                res.json({
+                    message: 'success',
+                    data: rows
+                })
+            }
+        });
+    } catch(error) {
+        console.log(error.message.red)
 
-    db.all(sql, params, (err, rows) => {
-        if (err) {
-          res.status(400).json({"error":err.message});
-          return;
-        }
-        res.json({
-            "message":"success",
-            "data":rows
+        res.status(500).json({
+            message: 'Not found.'
         })
-    });
+    }
 })
 
 /**
@@ -43,6 +53,7 @@ router.get('/cars', (req, res) => {
  * If the entry does not exist in the database, the user will be prompted with an error.
  */
 router.get('/cars/:id', (req, res) => {
+    // TODO GET car by ID
     try {
         let sql = 'SELECT * FROM cars WHERE car_id = ?'
         let params = [req.params.id]
@@ -53,10 +64,12 @@ router.get('/cars/:id', (req, res) => {
 
                 return
             }
-            res.json({
-                message: 'success',
-                data: rows
-            })
+            else {
+                res.status(200).json({
+                    message: 'success',
+                    data: rows
+                })
+            }
         })
     } catch(error) {
         console.log(error.message.red)
