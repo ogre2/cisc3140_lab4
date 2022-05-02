@@ -34,7 +34,7 @@ app.use(helmet())
 // Using index router
 app.use('/', indexRouter)
 // Using cars router
-// app.use('/api', carsRouter)
+app.use('/api', carsRouter)
 
 /**
  * @params NONE
