@@ -16,6 +16,10 @@ const app = express()
 // Creating server
 const server = http.createServer(app)
 
+// Importing index router
+const indexRouter = require('./routes/index')
+// Importing cars router
+const carsRouter = require('./routes/cars')
 
 // Enabling colors
 colors.enable()
@@ -27,26 +31,10 @@ app.use(bodyParser.json())
 // Using helmet
 app.use(helmet())
 
-/**
- * @params NONE
- * @method GET 
- * This is a test GET request of our root API URL, if successful,
- * the user will be met with a message:OK to indicate that the API is up and running.
- * If unsuccesful, the user will be met with an error message.
- */
-app.get('/', (req, res) => {
-    try {
-        return res.status(200).json({
-            message: 'OK'
-        })
-    } catch(error) {
-        console.log(error.message.red)
-
-        return res.status(500).json({
-            message: 'Something went wrong while connecting to API.'
-        })
-    }
-})
+// Using index router
+app.use('/', indexRouter)
+// Using cars router
+app.use('/api/', carsRouter)
 
 /**
  * @params NONE
