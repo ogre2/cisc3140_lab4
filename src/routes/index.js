@@ -1,10 +1,10 @@
-// Importing colors
-const colors = require('colors')
+// Importing config file
+const config = require('../config')
 // Importing express router
 const router = require('express').Router()
 
 // Enabling colors
-colors.enable()
+config.colors.enable()
 
 /**
  * @params NONE
