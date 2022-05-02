@@ -11,6 +11,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] &mdash; (2022/05/02)
+### Added
+- Installed dependencies
+  - `<Express>` as our Node framework.
+  - `<sqlite3>` as our API database solution.
+  - `<nodemon>` for server auto-restarting during development.
+  - `<dotenv>` for our API environment variables.
+  - `<colors>` for console highlighting.
+  - `<helmet>` HTTP headers configuration and API security.
+- Created `<src>` directory to house API code.
+- Created `<src/config>` subdirectory to house API configuration info.
+- Created `<server.js>` file for API build.
+  - Created test GET request.
+
+### Changes
+- Updated [README.md](https://github.com/ogre2/cisc3140_lab4/blob/main/README.md) with more project details.
+
+
 ## [0.0.1] &mdash; (2022/05/02)
 ### Added
 - Initial project build.
@@ -19,4 +37,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `README.md>`.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/ogre2/cisc3140_lab4/compare/v0.0.1...v1.0.0
 [0.0.1]: https://github.com/ogre2/cisc3140_lab4/releases/tag/v0.0.1
