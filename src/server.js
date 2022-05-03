@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // Using body-parser
 app.use(bodyParser.json())
 // Using cors
-app.use(cors)
+// app.use(cors)
 // Using helmet
 app.use(helmet())
 
