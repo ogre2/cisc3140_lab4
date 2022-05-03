@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changes
 - Re-added the POST route in `<src/routes/cars.js>`.
 - Can now add new car entries to database with all db column information.
+- Relaunched database -> `<src/db/db.sqlite3>`.
 
 ## [1.3.1] &mdash; (2022/05/02)
 ### Changes
