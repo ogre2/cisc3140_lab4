@@ -1,5 +1,7 @@
 // Importing express
 const express = require('express')
+// Importing cors
+const cors = require('cors')
 // Importing http
 const http = require('http')
 // Importing body-parser
@@ -31,6 +33,8 @@ app.set('json spaces', 2)
 app.use(bodyParser.urlencoded({ extended: true }))
 // Using body-parser
 app.use(bodyParser.json())
+// Using cors
+app.use(cors)
 // Using helmet
 app.use(helmet())
 
