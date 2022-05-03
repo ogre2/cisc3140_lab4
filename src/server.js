@@ -22,8 +22,11 @@ const carsRouter = require('./routes/cars')
 // Enabling colors
 config.colors.enable()
 
+// Ensuring case sensitive routing
+app.set('case sensitive routing', true)
 // Setting json formatting
 app.set('json spaces', 2)
+
 // Configuring body-parser
 app.use(bodyParser.urlencoded({ extended: true }))
 // Using body-parser
