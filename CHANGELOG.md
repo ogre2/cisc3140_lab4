@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.5] &mdash; (2022/05/03)
+### Added
+- Installed `<cors>` to automatically set HTTP headers.
+- Enabled `<cors>`, allows external API testers to connect to Heroku link.
+
+### Changes
+- Modified `<src/routes/cars.js>` GET all cars method
+  - Only display car_id, email, name, make, model, and score fields.
+
 ## [1.3.4] &mdash; (2022/05/03)
 ### Added
 - Added project installation instructions to the [README.md](https://github.com/ogre2/cisc3140_lab4/blob/main/README.md).
@@ -113,6 +122,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `README.md>`.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
+[1.3.5]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.4...v1.3.5
 [1.3.4]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.1...v1.3.2
