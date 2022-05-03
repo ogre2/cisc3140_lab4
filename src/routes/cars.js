@@ -22,7 +22,7 @@ router.get('/cars', (req, res) => {
     // TODO GET all cars
     try {
         // SQL query command
-        let sql = 'SELECT * FROM cars'
+        let sql = 'SELECT car_id,email,name,year,make,model,score FROM cars'
         // Query paramaters
         let params = []
 
