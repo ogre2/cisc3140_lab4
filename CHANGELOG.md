@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.4] &mdash; (2022/05/03)
+### Added
+- Added project installation instructions to the [README.md](https://github.com/ogre2/cisc3140_lab4/blob/main/README.md).
+
 ## [1.3.3] &mdash; (2022/05/03)
 ### Added
 - Created PATCH method in `</src/routes/cars.js>` file.
@@ -109,6 +113,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `README.md>`.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
+[1.3.4]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.2...v1.3.3
 [1.3.2]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.1...v1.3.2
 [1.3.1]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.0...v1.3.1
