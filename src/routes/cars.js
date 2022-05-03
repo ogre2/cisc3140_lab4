@@ -9,35 +9,99 @@ const db = require('../db')
 config.colors.enable()
 
 /**
- * @params NONE
+ * @param
  * @method GET
- * This is a test GET request for the /cars API endppoint, if successful,
- * the user will be met with a message:success to indicate successful access of endpoint.
- * All data in the database will also be shown in JSON format.
  * 
- * If unsuccesful, the user will be met with an error message.
+ * This method will GET data from the /cars API endpoint.
+ * If successful, the user will be met with a success message as well as all JSON data of 
+ * all the entries from the API database.
+ * 
+ * If unccessful, the user will be prompted with an error message.
  */
 router.get('/cars', (req, res) => {
     // TODO GET all cars
     try {
+        // SQL query command
         let sql = 'SELECT * FROM cars'
+        // Query paramaters
         let params = []
-    
-        db.all(sql, params, (err, rows) => {
-            if (err) {
-              res.status(400).json({"error":err.message});
-              return;
-            }
-            else {
-                res.json({
-                    message: 'success',
-                    data: rows
+
+        // Retrieving the data from the database
+        db.all(sql, params, (err, row) => {
+            // If we encounter an error
+            if(err) {
+                // Log the error to the console
+                console.log(err.message.red)
+
+                // Return a 400 status error and message
+                res.status(400).json({
+                    message: 'Something went wrong.'
                 })
             }
-        });
+            // Otherwise
+            else {
+                // Return a 200 status code for successful retrieval and show the JSON data
+                res.status(200).json({
+                    message: 'success',
+                    data: row
+                })
+            }
+        })
+    // Catch error
     } catch(error) {
+        // Log the error to the console
         console.log(error.message.red)
 
+        // Return a server error code and nessage
+        res.status(500).json({
+            message: 'Server error.'
+        })
+    }
+})
+
+/**
+ * @param id
+ * @method GET
+ * This GET request will return an individual database entry specified by the ID paramater.
+ * If the entry requested exists in the database, the user will be able to view the entry.
+ * 
+ * If the entry does not exist in the database, the user will be prompted with an error nessage.
+ */
+router.get('/cars/:id', (req, res) => {
+    // TODO GET car with specific id
+    try {
+        // SQL query command
+        let sql = 'SELECT * FROM cars WHERE car_id = ?'
+        // Query paramater
+        let params = [req.params.id]
+
+        // Retrieving the data entry specified by id from the database
+        db.get(sql, params, (err, row) => {
+            // If we encounter an error
+            if(err) {
+                // Log the error to the console
+                console.log(err.message.red)
+
+                // Return a 400 status error and message
+                res.status(400).json({
+                    message: 'Something went wrong.'
+                })
+            }
+            // Otherwise
+            else {
+                // Return a 200 status code for successful retrieval and show the JSON data
+                res.status(200).json({
+                    message: 'success',
+                    data: [row]
+                })
+            }
+        })
+    // Catch error
+    } catch(error) {
+        // Log the error to the console
+        console.log(error.message.red)
+
+        // Return a server error code and nessage
         res.status(500).json({
             message: 'Not found.'
         })
@@ -45,65 +109,53 @@ router.get('/cars', (req, res) => {
 })
 
 /**
- * @param Car_ID
+ * @param make
  * @method GET
- * This GET request will return an individual database entry specified by the ID paramater.
- * If the entry requested exists in the database, the user will be able to view the entry.
+ * This GET request will return all database entries specified by the make paramater.
+ * If the entries requested exist in the database, the user will be able to view all of those entries.
  * 
- * If the entry does not exist in the database, the user will be prompted with an error.
+ * If the entries do not exist in the database, the user will be prompted with an error nessage.
  */
-router.get('/cars/:id', (req, res) => {
-    // TODO GET car by ID
+router.get('/cars/make/:make', (req, res) => {
+    // TODO GET cars by same make
     try {
-        let sql = 'SELECT * FROM cars WHERE car_id = ?'
-        let params = [req.params.id]
-        
-        db.all(sql, params, (err, rows) => {
-            if(err) {
-                res.status(400).json({'error': err.message})
+        // SQL Query command
+        let sql = 'SELECT * FROM cars WHERE make = ?'
+        // Query paramater
+        let params = [req.params.make]
 
-                return
+        // Retrieving the data entry specified by id from the database
+        db.all(sql, params, (err, row) => {
+            // If we encounter an error
+            if(err) {
+                // Log the error to the console
+                console.log(err.message)
+
+                // Return a 400 status error and message
+                res.status(400).json({
+                    message: 'Something went wrong'
+                })
             }
+            // Otherwise
             else {
+                // Return a 200 status code for successful retrieval and show the JSON data
                 res.status(200).json({
                     message: 'success',
-                    data: rows
+                    data: row
                 })
             }
         })
+    // Catch error
     } catch(error) {
-        console.log(error.message.red)
+        // Log the error to the console
+        console.log(error.message)
 
-        res.status(500).json({
-            message: 'Not found.'
-        })
-    }
-})
-
-router.post('/cars/new', (req, res) => {
-    // TODO POST new car entry
-    try {
-        let sql = 'INSERT INTO cars (car_id, email, name, year, make, model, score) VALUES (?, ?, ?, ?, ?, ?, ?)'
-        let params = [req.body.car_id, req.body.email, req.body.name, req.body.year, req.body.make, req.body.model, req.body.score]
-
-        db.run(sql, params, err => {
-            if(err) {
-                return console.log(err.message)
-            }
-
-            res.json({
-                message: 'success',
-                data: req.body
-            })
-        })
-
-    } catch(error) {
-        console.log(error.message.red)
-        
+        // Return a server error code and nessage
         res.status(500).json({
             message: 'Not found'
         })
     }
 })
+
 // Exporting router
 module.exports = router
