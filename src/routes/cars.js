@@ -22,7 +22,7 @@ router.get('/cars', (req, res) => {
     // TODO GET all cars
     try {
         // SQL query command
-        let sql = 'SELECT * FROM cars'
+        let sql = 'SELECT car_id,email,name,year,make,model,score FROM cars'
         // Query paramaters
         let params = []
 
@@ -71,7 +71,7 @@ router.get('/cars/:id', (req, res) => {
     // TODO GET car with specific id
     try {
         // SQL query command
-        let sql = 'SELECT * FROM cars WHERE car_id = ?'
+        let sql = 'SELECT car_id,email,name,year,make,model,score FROM cars WHERE car_id = ?'
         // Query paramater
         let params = [req.params.id]
 
@@ -120,7 +120,7 @@ router.get('/cars/make/:make', (req, res) => {
     // TODO GET cars by same make
     try {
         // SQL Query command
-        let sql = 'SELECT * FROM cars WHERE make = ?'
+        let sql = 'SELECT car_id,email,name,year,make,model,score FROM cars WHERE make = ?'
         // Query paramater
         let params = [req.params.make]
 
