@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.1] &mdash; (2022/05/02)
+### Changes
+- Fixed sql query command in `<src/routes/cars.js>`.
+- JSON output only shows id, email, year, name, make, model, and score.
+
 ## [1.3.0] &mdash; (2022/05/02)
 ### Added
 - Added router to get car entries by make in `<src/routes/cars.js>`.
@@ -88,6 +93,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `README.md>`.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
+[1.3.1]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.0...v1.3.1
 [1.3.0]: https://github.com/ogre2/cisc3140_lab4/compare/v1.2.3...v1.3.0
 [1.2.3]: https://github.com/ogre2/cisc3140_lab4/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/ogre2/cisc3140_lab4/compare/v1.2.1...v1.2.2
