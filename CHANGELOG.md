@@ -11,6 +11,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.6] &mdash; (2022/05/04)
+### Changes
+- Modified database creation code in `<src/db/index.js>`.
+- Relaunched database.
+- Added comments to `<src/db/index.js>`.
+- Added comments to PATCH method in `<src/routes/cars.js>`.
+- Modified README.md file with details on installation process and using.
+- Added known bugs section as well.
+
 ## [1.3.5] &mdash; (2022/05/03)
 ### Added
 - Installed `<cors>` to automatically set HTTP headers.
@@ -122,6 +131,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `README.md>`.
 
 [Unreleased]: https://github.com/olivierlacan/keep-a-changelog/compare/v1.0.0...HEAD
+[1.3.6]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.5...v1.3.6
 [1.3.5]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.4...v1.3.5
 [1.3.4]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.3...v1.3.4
 [1.3.3]: https://github.com/ogre2/cisc3140_lab4/compare/v1.3.2...v1.3.3
