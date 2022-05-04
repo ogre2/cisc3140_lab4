@@ -62,8 +62,8 @@ router.get('/cars', (req, res) => {
 /**
  * @param id
  * @method GET
- * This GET request will return an individual database entry specified by the ID paramater.
- * If the entry requested exists in the database, the user will be able to view the entry.
+ * This GET method will return an individual database entry specified by the ID paramater.
+ * If the entry methoded exists in the database, the user will be able to view the entry.
  * 
  * If the entry does not exist in the database, the user will be prompted with an error nessage.
  */
@@ -111,8 +111,8 @@ router.get('/cars/:id', (req, res) => {
 /**
  * @param make
  * @method GET
- * This GET request will return all database entries specified by the make paramater.
- * If the entries requested exist in the database, the user will be able to view all of those entries.
+ * This GET method will return all database entries specified by the make paramater.
+ * If the entries methoded exist in the database, the user will be able to view all of those entries.
  * 
  * If the entries do not exist in the database, the user will be prompted with an error nessage.
  */
@@ -160,7 +160,7 @@ router.get('/cars/make/:make', (req, res) => {
 /**
  * @param 
  * @method POST
- * This POST request will add a new car entry into the database.
+ * This POST method will add a new car entry into the database.
  * If the entries is successfully added, the user will be prompted with a success message
  * and the req.body. They will also be able to view the entries in the /cars endpoint.
  * 
@@ -186,7 +186,7 @@ router.post('/cars', (req, res) => {
 
                 // Display a 400 status error and message
                 res.status(400).json({
-                    message: 'Something went wrong.'
+                    message: 'One or more keys already exist.'
                 })
             }
             // Otherwise
@@ -210,6 +210,17 @@ router.post('/cars', (req, res) => {
     }
 })
 
+/**
+ * @param id
+ * @method PATCH
+ * This PATCH method will edit/update an existing car entry in the database. The user can update all entry keys and values,
+ * or choose any keys they desire to change.
+ * 
+ * If the entries is successfully uupdated, the user will be prompted with a success message, and the changes will be
+ * reflected under the /api/cars endpoint.
+ * 
+ * If the entry not updated successfully, the user will be prompted with an error nessage.
+ */
 router.patch('/cars/:id', (req, res) => {
     try {
         // SQL Query command
