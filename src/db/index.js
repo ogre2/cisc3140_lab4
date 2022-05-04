@@ -17,12 +17,20 @@ config.colors.enable()
  * our cars table with each cars ID, owner email and name, car year, manufacturer, and model.
  */
 let db = new sqlite3.Database(config.database_name, (err) => {
+    // If we encounter an error while creating the database
     if (err) {
-      // Cannot open database
-      console.error(err.message)
-      throw err
-    } else {
+        // Log the error message
+        console.error(err.message.red)
+
+        // Throw the error as well
+        throw err
+    // Otherwise proceed with database creation
+    } 
+    else {
+        // Alert the user that they've successfully connected to the database
         console.log('Connected to database...'.blue)
+
+        // Creating the cars table within our database with the columns from the CSV file
         db.run(`CREATE TABLE cars (
             car_id INT PRIMARY KEY,
             email TEXT UNIQUE,
@@ -58,29 +66,35 @@ let db = new sqlite3.Database(config.database_name, (err) => {
             score INT
             )`,
         (err) => {
+            // If we get an error
             if (err) {
-                // Table already created
-            } else {
+                // Console log the eror
+                console.log(err.message.red)
+            } 
+            // Otherwise add the data from our csv file to the database cars table
+            else {
+                // Use the csvtojson package to convert the csv data into json format
                 csvtojson().fromFile(DATA_CSV)
                 .then(data => {
+                    // SQL Insert query command to put data from the columns into the database table
                     let insert = 'INSERT INTO cars (Car_ID, Email, Name, Year, Make, Model, Racer_Turbo, Racer_Supercharged, Racer_Performance, Racer_Horsepower, Car_Overall, Engine_Modifications, Engine_Performance, Engine_Chrome, Engine_Detailing, Engine_Cleanliness, Body_Frame_Undercarriage, Body_Frame_Suspension, Body_Frame_Chrome, Body_Frame_Detailing, Body_Frame_Cleanliness, Mods_Paint, Mods_Body, Mods_Wrap, Mods_Rims, Mods_Interior, Mods_Other, Mods_ICE, Mods_Aftermarket, Mods_WIP, Mods_Overall, Score) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)';
 
-                    for(const item of data) {
-                        // [parseInt(item.Racer_Turbo) + parseInt(item.Racer_Supercharged) + parseInt(item.Racer_Performance) + parseInt(item.Racer_Horsepower) + parseInt(item.Car_Overall) + parseInt(item.Engine_Modifications) + parseInt(item.Engine_Performance) + parseInt(item.Engine_Chrome) + parseInt(item.Engine_Detailing) + parseInt(item.Engine_Cleanliness) + parseInt(item.Body_Frame_Undercarriage) + parseInt(item.Body_Frame_Suspension) + parseInt(item.Body_Frame_Chrome) + parseInt(item.Body_Frame_Detailing) + parseInt(item.Body_Frame_Cleanliness) + parseInt(item.Mods_Paint) + parseInt(item.Mods_Body) + parseInt(item.Mods_Wrap) + parseInt(item.Mods_Rims) + parseInt(item.Mods_Interior) + parseInt(item.Mods_Other) + parseInt(item.Mods_ICE) + parseInt(item.Mods_Aftermarket) + parseInt(item.Mods_WIP) + parseInt(item.Mods_Overall)]
-                        
+                    // Loop through all rows inside the csv file and add them into the table
+                    for(const entry of data) {
+                        // Use the run function from sqlite database
                         db.run(insert, [
-                            item.Car_ID, item.Email, item.Name, item.Year, item.Make, item.Model, item.Racer_Turbo, item.Racer_Supercharged, item.Racer_Performance, item.Racer_Horsepower, item.Car_Overall, item.Engine_Modifications, item.Engine_Performance, item.Engine_Chrome, item.Engine_Detailing, item.Engine_Cleanliness, item.Body_Frame_Undercarriage, item.Body_Frame_Suspension, item.Body_Frame_Chrome, item.Body_Frame_Detailing, item.Body_Frame_Cleanliness, item.Mods_Paint, item.Mods_Body, item.Mods_Wrap, item.Mods_Rims, item.Mods_Interior, item.Mods_Other, item.Mods_ICE, item.Mods_Aftermarket, item.Mods_WIP, item.Mods_Overall,
-                            [parseInt(item.Racer_Turbo) + parseInt(item.Racer_Supercharged) + parseInt(item.Racer_Performance) + parseInt(item.Racer_Horsepower) + parseInt(item.Car_Overall) + parseInt(item.Engine_Modifications) + parseInt(item.Engine_Performance) + parseInt(item.Engine_Chrome) + parseInt(item.Engine_Detailing) + parseInt(item.Engine_Cleanliness) + parseInt(item.Body_Frame_Undercarriage) + parseInt(item.Body_Frame_Suspension) + parseInt(item.Body_Frame_Chrome) + parseInt(item.Body_Frame_Detailing) + parseInt(item.Body_Frame_Cleanliness) + parseInt(item.Mods_Paint) + parseInt(item.Mods_Body) + parseInt(item.Mods_Wrap) + parseInt(item.Mods_Rims) + parseInt(item.Mods_Interior) + parseInt(item.Mods_Other) + parseInt(item.Mods_ICE) + parseInt(item.Mods_Aftermarket) + parseInt(item.Mods_WIP) + parseInt(item.Mods_Overall)]
+                            entry.Car_ID, entry.Email, entry.Name, entry.Year, entry.Make, entry.Model, entry.Racer_Turbo, entry.Racer_Supercharged, entry.Racer_Performance, entry.Racer_Horsepower, entry.Car_Overall, entry.Engine_Modifications, entry.Engine_Performance, entry.Engine_Chrome, entry.Engine_Detailing, entry.Engine_Cleanliness, entry.Body_Frame_Undercarriage, entry.Body_Frame_Suspension, entry.Body_Frame_Chrome, entry.Body_Frame_Detailing, entry.Body_Frame_Cleanliness, entry.Mods_Paint, entry.Mods_Body, entry.Mods_Wrap, entry.Mods_Rims, entry.Mods_Interior, entry.Mods_Other, entry.Mods_ICE, entry.Mods_Aftermarket, entry.Mods_WIP, entry.Mods_Overall,
+                            [parseInt(entry.Racer_Turbo) + parseInt(entry.Racer_Supercharged) + parseInt(entry.Racer_Performance) + parseInt(entry.Racer_Horsepower) + parseInt(entry.Car_Overall) + parseInt(entry.Engine_Modifications) + parseInt(entry.Engine_Performance) + parseInt(entry.Engine_Chrome) + parseInt(entry.Engine_Detailing) + parseInt(entry.Engine_Cleanliness) + parseInt(entry.Body_Frame_Undercarriage) + parseInt(entry.Body_Frame_Suspension) + parseInt(entry.Body_Frame_Chrome) + parseInt(entry.Body_Frame_Detailing) + parseInt(entry.Body_Frame_Cleanliness) + parseInt(entry.Mods_Paint) + parseInt(entry.Mods_Body) + parseInt(entry.Mods_Wrap) + parseInt(entry.Mods_Rims) + parseInt(entry.Mods_Interior) + parseInt(entry.Mods_Other) + parseInt(entry.Mods_ICE) + parseInt(entry.Mods_Aftermarket) + parseInt(entry.Mods_WIP) + parseInt(entry.Mods_Overall)]
                         ]);
                     }
                 }).catch(err => {
-                    // log error if any
+                    // log any error we might encounter if any
                     console.log(err);
                 });
-                // Table just created, creating some rows
             }
         });  
     }
 });
 
+// Export our created database
 module.exports = db
